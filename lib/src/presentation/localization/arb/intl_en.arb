@@ -1,0 +1,9 @@
+{
+  "@@locale": "en",
+  "appName": "Whatsapp Redesign",
+  "chatsTabLabel": "Chats",
+  "storiesTabLabel": "Stories",
+  "channelsTabLabel": "Channels",
+  "callsTabLabel": "Calls",
+  "settingsTabLabel": "Settings"
+}
