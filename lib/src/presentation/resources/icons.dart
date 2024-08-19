@@ -23,4 +23,7 @@ abstract interface class SvgIcons {
   static const String starred = '${_path}starred.svg';
   static const String qrScan = '${_path}qrScan.svg';
   static const String search = '${_path}search.svg';
+  static const String menu = '${_path}menu.svg';
+  static const String appearance = '${_path}appearance.svg';
+  static const String camera = '${_path}camera.svg';
 }

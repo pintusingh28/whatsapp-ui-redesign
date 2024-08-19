@@ -12,5 +12,7 @@
   "linkedDevicesSettingLabel": "Linked Devices",
   "starredMessagesSettingLabel": "Starred Messages",
   "favoritesSettingLabel": "Favorites",
-  "settingsScreenTitle": "Settings"
+  "settingsScreenTitle": "Settings",
+  "chatsScreenTitle": "Chats",
+  "appearanceSettingLabel": "Appearance"
 }

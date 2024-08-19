@@ -6,6 +6,7 @@ import 'package:provider/provider.dart';
 import 'package:ui_components/ui_components.dart';
 import 'package:whatsapp_redesign/src/core/extensions/build_context_extensions.dart';
 import 'package:whatsapp_redesign/src/presentation/localization/l10n.dart';
+import 'package:whatsapp_redesign/src/presentation/pages/chat/chat.dart';
 import 'package:whatsapp_redesign/src/presentation/pages/settings/settings.dart';
 import 'package:whatsapp_redesign/src/presentation/resources/resources.dart';
 
@@ -48,7 +49,7 @@ class _MainViewContent extends StatelessWidget {
     );
 
     final child = switch (selectedOption) {
-      MainNavigationOption.chat => const Material(key: ValueKey(MainNavigationOption.chat)),
+      MainNavigationOption.chat => const ChatScreen(key: ValueKey(MainNavigationOption.chat)),
       MainNavigationOption.story => const Material(key: ValueKey(MainNavigationOption.story)),
       MainNavigationOption.channel => const Material(key: ValueKey(MainNavigationOption.channel)),
       MainNavigationOption.call => const Material(key: ValueKey(MainNavigationOption.call)),

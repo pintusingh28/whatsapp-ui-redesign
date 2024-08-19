@@ -40,7 +40,7 @@ class _SettingsViewState extends State<SettingsView> {
       body: CustomScrollView(
         slivers: [
           MainHeader(
-            title: l10n.settingsScreenTitle,
+            title: Text(l10n.settingsScreenTitle),
             leadingAction: IconButton(
               onPressed: () {},
               icon: const SvgIcon(SvgIcons.qrScan),
@@ -120,6 +120,11 @@ class _SettingsViewState extends State<SettingsView> {
                 child: Column(
                   children: [
                     _SettingOptionTile(
+                      icon: SvgIcons.appearance,
+                      label: l10n.appearanceSettingLabel,
+                      onPressed: () {},
+                    ),
+                    _SettingOptionTile(
                       icon: SvgIcons.account,
                       label: l10n.accountSettingLabel,
                       onPressed: () {},
@@ -162,6 +167,7 @@ class _SettingOptionTile extends StatelessWidget {
     final colorScheme = context.colorScheme;
 
     return ListTile(
+      contentPadding: const EdgeInsets.symmetric(horizontal: Spacing.normal),
       onTap: onPressed,
       iconColor: colorScheme.onSurface,
       leading: SvgIcon(icon),

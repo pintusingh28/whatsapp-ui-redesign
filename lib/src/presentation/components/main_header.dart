@@ -1,5 +1,6 @@
 import 'package:adaptive_layout/adaptive_layout.dart';
 import 'package:flutter/material.dart';
+import 'package:gap/gap.dart';
 import 'package:whatsapp_redesign/src/core/core.dart';
 
 class MainHeader extends StatelessWidget {
@@ -10,7 +11,7 @@ class MainHeader extends StatelessWidget {
     this.trailingAction,
   });
 
-  final String title;
+  final Text title;
   final Widget? leadingAction;
   final Widget? trailingAction;
 
@@ -18,7 +19,7 @@ class MainHeader extends StatelessWidget {
   Widget build(BuildContext context) {
     return SliverPersistentHeader(
       delegate: _MainHeaderDelegate(
-        height: kToolbarHeight + Spacing.normal + kToolbarHeight + context.mediaQueryPadding.top,
+        height: kToolbarHeight + Spacing.normal + Spacing.normal + kToolbarHeight + context.mediaQueryPadding.top,
         title: title,
         leadingAction: leadingAction,
         trailingAction: trailingAction,
@@ -36,7 +37,7 @@ class _MainHeaderDelegate extends SliverPersistentHeaderDelegate {
   });
 
   final double height;
-  final String title;
+  final Text title;
   final Widget? leadingAction;
   final Widget? trailingAction;
 
@@ -74,13 +75,13 @@ class _MainHeaderDelegate extends SliverPersistentHeaderDelegate {
               ),
             ),
           ),
-
+          const Gap(Spacing.normal),
           SizedBox(
             height: kToolbarHeight,
-            child: Text(
-              title,
-              style: textTheme.headlineLarge ,
+            child: DefaultTextStyle.merge(
+              style: textTheme.headlineLarge,
               textAlign: TextAlign.start,
+              child: title,
             ),
           ),
         ],
@@ -89,5 +90,9 @@ class _MainHeaderDelegate extends SliverPersistentHeaderDelegate {
   }
 
   @override
-  bool shouldRebuild(_MainHeaderDelegate oldDelegate) => oldDelegate.height != height;
+  bool shouldRebuild(_MainHeaderDelegate oldDelegate) =>
+      oldDelegate.height != height ||
+      oldDelegate.title != title ||
+      oldDelegate.leadingAction != leadingAction ||
+      oldDelegate.trailingAction != trailingAction;
 }
