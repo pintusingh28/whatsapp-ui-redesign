@@ -5,5 +5,12 @@
   "storiesTabLabel": "Stories",
   "channelsTabLabel": "Channels",
   "callsTabLabel": "Calls",
-  "settingsTabLabel": "Settings"
+  "settingsTabLabel": "Settings",
+  "chatSettingLabel": "Chats",
+  "privacySettingLabel": "Privacy",
+  "accountSettingLabel": "Account",
+  "linkedDevicesSettingLabel": "Linked Devices",
+  "starredMessagesSettingLabel": "Starred Messages",
+  "favoritesSettingLabel": "Favorites",
+  "settingsScreenTitle": "Settings"
 }

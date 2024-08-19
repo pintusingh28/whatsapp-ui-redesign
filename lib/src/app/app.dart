@@ -1,19 +1,26 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:whatsapp_redesign/src/presentation/localization/l10n.dart';
-import 'package:whatsapp_redesign/src/presentation/pages/main/main.dart';
 
+import 'route/routes.dart';
 import 'theme.dart';
-import 'routes.dart';
 
-class WhatsappRedesignedApp extends StatefulWidget {
-  const WhatsappRedesignedApp({super.key});
+class WhatsappRedesignApp extends StatefulWidget {
+  const WhatsappRedesignApp({super.key});
+
+  static WhatsappRedesignAppState of(BuildContext context) {
+    final state = context.findAncestorStateOfType<WhatsappRedesignAppState>();
+    assert(state != null, 'No WhatsappRedesignApp found in context!');
+    return state!;
+  }
 
   @override
-  State<WhatsappRedesignedApp> createState() => _WhatsappRedesignedAppState();
+  State<WhatsappRedesignApp> createState() => WhatsappRedesignAppState();
 }
 
-class _WhatsappRedesignedAppState extends State<WhatsappRedesignedApp> {
+class WhatsappRedesignAppState extends State<WhatsappRedesignApp> {
+  final GlobalKey<NavigatorState> navigatorKey = GlobalKey();
+  final RouteObserver routeObserver = RouteObserver();
   late WhatsappRedesignTheme _theme;
   late AppRoutes _appRoutes;
 
@@ -21,15 +28,20 @@ class _WhatsappRedesignedAppState extends State<WhatsappRedesignedApp> {
   void didChangeDependencies() {
     super.didChangeDependencies();
     _theme = WhatsappRedesignTheme(context);
-    _appRoutes = AppRoutes();
+    _appRoutes = const AppRoutes();
   }
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp.router(
+    return MaterialApp(
+      restorationScopeId: 'whatsapp_redesign',
+      onGenerateTitle: (context) => AppLocalizations.of(context).appName,
+      debugShowCheckedModeBanner: false,
+      navigatorKey: navigatorKey,
+      navigatorObservers: [routeObserver],
       theme: _theme.lightTheme,
       darkTheme: _theme.darkTheme,
-      routerConfig: _appRoutes.routerConfig,
+      onGenerateRoute: _appRoutes.onGenerateRoute,
       supportedLocales: AppLocalizations.delegate.supportedLocales,
       localizationsDelegates: const [
         AppLocalizations.delegate,

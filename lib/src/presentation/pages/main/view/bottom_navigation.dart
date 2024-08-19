@@ -90,7 +90,7 @@ class _NavigationIcons extends StatelessWidget {
     final Color foregroundColor = selected ? colorScheme.primary : colorScheme.onSurfaceVariant;
 
     return InkResponse(
-      radius: 24,
+      radius: 32,
       borderRadius: ShapeBorderRadius.extraLarge,
       splashColor: colorScheme.primary.withOpacity(0.1),
       highlightColor: colorScheme.primary.withOpacity(0.1),
@@ -106,7 +106,7 @@ class _NavigationIcons extends StatelessWidget {
             decoration: ShapeDecoration(shape: Shapes.full, color: colorScheme.surfaceContainerHighest),
             textStyle: TextStyle(color: colorScheme.onSurfaceVariant),
             child: SizedBox.square(
-              dimension: kMinInteractiveDimension,
+              dimension: 56,
               child: SvgIcon(icon, color: foregroundColor),
             ),
           ),
